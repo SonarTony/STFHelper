@@ -9,11 +9,12 @@
   <div class="app">
     <h1>STF One Roll Helper</h1>
     <div class="subtitle">
-      Base roll only - main results, no pressure yet
+      Main result plus extra D10 and D20
     </div>
 
     <button id="rollButton">Roll (2d6, 1d10)</button>
 
+    <!-- Main roll dice -->
     <div class="dice-row">
       <div class="die">
         <div class="die-label">D6 - A</div>
@@ -24,20 +25,43 @@
         <div id="d6bValue" class="die-value">-</div>
       </div>
       <div class="die">
-        <div class="die-label">D10</div>
+        <div class="die-label">Main D10</div>
         <div id="d10Value" class="die-value">-</div>
       </div>
     </div>
 
+    <!-- Extra independent dice -->
+    <div class="dice-row extra-row">
+      <div class="die">
+        <div class="die-label">Extra D10</div>
+        <div id="extraD10Value" class="die-value">-</div>
+      </div>
+      <div class="die">
+        <div class="die-label">D20</div>
+        <div id="d20Value" class="die-value">-</div>
+      </div>
+      <div class="die placeholder-die"></div>
+    </div>
+
+    <!-- Main total -->
     <div class="total-panel">
-      <div class="total-panel-label">Result (before any modifiers)</div>
+      <div class="total-panel-label">Main result (before modifiers)</div>
       <div id="totalValue" class="total-panel-value">-</div>
     </div>
 
     <div class="formula">
-      Formula: (D6 A + D6 B) × 10 + D10
+      Formula: (D6 A + D6 B) × 10 + Main D10
     </div>
 
+    <!-- Chart lookup result -->
+    <div class="result-panel">
+      <div class="result-panel-label">Chart result</div>
+      <div id="chartResult" class="result-panel-text">
+        Roll to look up a result on the card.
+      </div>
+    </div>
+
+    <!-- History -->
     <div class="history">
       <h2>Last rolls</h2>
       <div id="historyList" class="history-list"></div>
@@ -47,3 +71,5 @@
   <script src="script.js"></script>
 </body>
 </html>
+
+
