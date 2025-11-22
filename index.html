@@ -1,75 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>STF One Roll Helper</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Play Result Helper</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="app">
-    <h1>STF One Roll Helper</h1>
-    <div class="subtitle">
-      Main result plus extra D10 and D20
-    </div>
+    <header class="app-header">
+      <h1>Play Result Helper</h1>
+      <p>(1d6 + 1d6) × 10 + 1d10 roller that shows the correct PDF chart section image.</p>
+    </header>
 
-    <button id="rollButton">Roll (2d6, 1d10)</button>
+    <main class="app-main">
+      <!-- LEFT: ROLLER AND TEXT RESULTS -->
+      <section class="roller-panel">
+        <button id="rollButton" class="roll-button">ROLL</button>
 
-    <!-- Main roll dice -->
-    <div class="dice-row">
-      <div class="die">
-        <div class="die-label">D6 - A</div>
-        <div id="d6aValue" class="die-value">-</div>
-      </div>
-      <div class="die">
-        <div class="die-label">D6 - B</div>
-        <div id="d6bValue" class="die-value">-</div>
-      </div>
-      <div class="die">
-        <div class="die-label">Main D10</div>
-        <div id="d10Value" class="die-value">-</div>
-      </div>
-    </div>
+        <div class="results-card">
+          <h2>Roll Details</h2>
 
-    <!-- Extra independent dice -->
-    <div class="dice-row extra-row">
-      <div class="die">
-        <div class="die-label">Extra D10</div>
-        <div id="extraD10Value" class="die-value">-</div>
-      </div>
-      <div class="die">
-        <div class="die-label">D20</div>
-        <div id="d20Value" class="die-value">-</div>
-      </div>
-      <div class="die placeholder-die"></div>
-    </div>
+          <div class="result-line">
+            <span class="label">2d6 (tens):</span>
+            <span class="value" id="twoD6Display">-</span>
+          </div>
 
-    <!-- Main total -->
-    <div class="total-panel">
-      <div class="total-panel-label">Main result (before modifiers)</div>
-      <div id="totalValue" class="total-panel-value">-</div>
-    </div>
+          <div class="result-line">
+            <span class="label">Main d10 (ones):</span>
+            <span class="value" id="mainD10Display">-</span>
+          </div>
 
-    <div class="formula">
-      Formula: (D6 A + D6 B) × 10 + Main D10
-    </div>
+          <div class="result-line total-line">
+            <span class="label">Main total:</span>
+            <span class="value total" id="mainTotal">-</span>
+          </div>
 
-    <!-- Chart lookup result -->
-    <div class="result-panel">
-      <div class="result-panel-label">Chart result</div>
-      <div id="chartResult" class="result-panel-text">
-        Roll to look up a result on the card.
-      </div>
-    </div>
+          <hr>
 
-    <!-- History -->
-    <div class="history">
-      <h2>Last rolls</h2>
-      <div id="historyList" class="history-list"></div>
-    </div>
+          <div class="result-line">
+            <span class="label">Extra d10:</span>
+            <span class="value" id="extraD10">-</span>
+          </div>
+
+          <div class="result-line">
+            <span class="label">d20:</span>
+            <span class="value" id="d20">-</span>
+          </div>
+        </div>
+
+        <div class="matched-card">
+          <h2>Result Info</h2>
+          <p id="chartDescription" class="chart-description">
+            Press ROLL to generate a result. If the total is in a mapped range, the matching PDF block image
+            appears on the right.
+          </p>
+        </div>
+
+        <div class="preview-card">
+          <h2>Section Preview (for testing)</h2>
+          <label for="sectionPreview" class="preview-label">
+            Pick a section to display its chart image:
+          </label>
+          <select id="sectionPreview">
+            <option value="">None</option>
+            <option value="inside_run_1">Inside Run 1 (1–18)</option>
+            <option value="draw_play_1">Draw Play 1 (19–21)</option>
+            <option value="outside_run_1">Outside Run 1 (22–26)</option>
+            <option value="draw_play_2">Draw Play 2 (27–31)</option>
+            <option value="outside_run_2">Outside Run 2 (32–33)</option>
+            <option value="inside_run_2">Inside Run 2 (34–44)</option>
+            <option value="draw_play_3">Draw Play 3 (45–46)</option>
+            <option value="outside_run_3">Outside Run 3 (47–49)</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- RIGHT: PDF SECTION IMAGE -->
+      <section class="section-panel">
+        <h2>PDF Section</h2>
+        <p class="section-note">
+          When a roll is mapped to a section, its chart image will show here.
+          You can also force a section using the preview dropdown.
+        </p>
+
+        <div id="sectionImageWrapper" class="section-image-wrapper section-image-wrapper--hidden">
+          <img id="sectionImage" src="" alt="Play result section" class="section-image">
+        </div>
+
+        <p id="noSectionMessage" class="no-section-message">
+          No section is selected yet.
+        </p>
+      </section>
+    </main>
   </div>
 
   <script src="script.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
 
 
