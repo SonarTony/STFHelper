@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>STF One Roll Helper</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <h1>STF One Roll Helper</h1>
+    <div class="subtitle">
+      Base roll only - main results, no pressure yet
+    </div>
+
+    <button id="rollButton">Roll (2d6, 1d10)</button>
+
+    <div class="dice-row">
+      <div class="die">
+        <div class="die-label">D6 - A</div>
+        <div id="d6aValue" class="die-value">-</div>
+      </div>
+      <div class="die">
+        <div class="die-label">D6 - B</div>
+        <div id="d6bValue" class="die-value">-</div>
+      </div>
+      <div class="die">
+        <div class="die-label">D10</div>
+        <div id="d10Value" class="die-value">-</div>
+      </div>
+    </div>
+
+    <div class="total-panel">
+      <div class="total-panel-label">Result (before any modifiers)</div>
+      <div id="totalValue" class="total-panel-value">-</div>
+    </div>
+
+    <div class="formula">
+      Formula: (D6 A + D6 B) × 10 + D10
+    </div>
+
+    <div class="history">
+      <h2>Last rolls</h2>
+      <div id="historyList" class="history-list"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
