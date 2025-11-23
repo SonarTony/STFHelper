@@ -31,7 +31,7 @@
           </div>
 
           <div class="result-line total-line">
-            <span class="label">Main total:</span>
+            <span class="label">Total (after modifier):</span>
             <span class="value total" id="mainTotal">-</span>
           </div>
 
@@ -45,6 +45,36 @@
           <div class="result-line">
             <span class="label">d20:</span>
             <span class="value" id="d20">-</span>
+          </div>
+        </div>
+
+        <!-- MANUAL MODIFIER CARD -->
+        <div class="modifier-card">
+          <h2>Manual Modifier</h2>
+
+          <div class="modifier-row modifier-row-top">
+            <label class="modifier-option">
+              <input type="radio" name="modType" value="none" checked>
+              No modifier
+            </label>
+            <label class="modifier-option">
+              <input type="radio" name="modType" value="add">
+              Add to roll
+            </label>
+            <label class="modifier-option">
+              <input type="radio" name="modType" value="sub">
+              Subtract from roll
+            </label>
+          </div>
+
+          <div class="modifier-row">
+            <span class="label">Modifier value:</span>
+            <input
+              type="number"
+              id="manualModifier"
+              value="0"
+              class="modifier-input"
+            >
           </div>
         </div>
 
@@ -113,6 +143,16 @@
           You can also force a section using the preview dropdown.
         </p>
 
+        <!-- Buttons to toggle extra popups -->
+        <div class="chart-buttons">
+          <button id="showPressureButton" class="pressure-button">
+            Pressure Chart
+          </button>
+          <button id="showKickoffButton" class="kickoff-button">
+            Kickoff Chart
+          </button>
+        </div>
+
         <div id="sectionImageWrapper" class="section-image-wrapper section-image-wrapper--hidden">
           <img id="sectionImage" src="" alt="Play result section" class="section-image">
         </div>
@@ -120,13 +160,54 @@
         <p id="noSectionMessage" class="no-section-message">
           No section is selected yet.
         </p>
+
+        <!-- STATIC PLAY CALLING IMAGE -->
+        <div class="playcall-box">
+          <h2 class="playcall-title">Play Calling Modifiers</h2>
+          <img
+            src="images/images_play_modifiers.png"
+            alt="Play calling modifiers chart"
+            class="playcall-image"
+          >
+        </div>
       </section>
     </main>
+  </div>
+
+  <!-- PRESSURE POPUP OVERLAY -->
+  <div id="pressureOverlay" class="chart-overlay">
+    <div class="chart-dialog">
+      <button id="pressureClose" class="chart-close" aria-label="Close pressure chart">
+        ×
+      </button>
+      <img
+        src="images/pressure_chart.png"
+        alt="Pressure results chart"
+        class="chart-image chart-image-pressure"
+      >
+    </div>
+  </div>
+
+  <!-- KICKOFF POPUP OVERLAY -->
+  <div id="kickoffOverlay" class="chart-overlay">
+    <div class="chart-dialog">
+      <button id="kickoffClose" class="chart-close" aria-label="Close kickoff chart">
+        ×
+      </button>
+      <img
+        src="images/kickoff_chart.png"
+        alt="Kickoff chart"
+        class="chart-image chart-image-kickoff"
+      >
+    </div>
   </div>
 
   <script src="script.js"></script>
 </body>
 </html>
+
+
+
 
 
 
