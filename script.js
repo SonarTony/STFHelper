@@ -8,14 +8,14 @@ function rollDie(sides) {
 
   Images folder is "images" in your project.
 
-  Expected files:
+  Expected files (based on everything so far):
     images/inside_run_1.png
     images/draw_play_1.png
     images/outside_run_1.png
     images/draw_play_2.png
     images/outside_run_2.png
     images/inside_run_2.png
-    images/draw_play_3.png
+    images/draw_play_3.png        (45-46 image)
     images/outside_run_3.png
     images/inside_run_3.png
     images/draw_play_4.png
@@ -23,6 +23,8 @@ function rollDie(sides) {
     images/inside_run_4.png
     images/outside_run_5.png
     images/short_pass_1.png
+    images/draw_play_5.png
+    images/short_pass_2.png
 */
 const sectionImages = {
   inside_run_1: "images/inside_run_1.png",
@@ -38,7 +40,9 @@ const sectionImages = {
   outside_run_4: "images/outside_run_4.png",
   inside_run_4: "images/inside_run_4.png",
   outside_run_5: "images/outside_run_5.png",
-  short_pass_1: "images/short_pass_1.png"
+  short_pass_1: "images/short_pass_1.png",
+  draw_play_5: "images/draw_play_5.png",
+  short_pass_2: "images/short_pass_2.png"
 };
 
 /*
@@ -54,7 +58,7 @@ const sectionImages = {
   Draw Play 2:    27-31
   Outside Run 2:  32-33
   Inside Run 2:   34-44
-  Draw Play 3:    45-46
+  Draw Play 3:    45-46   <-- 45 and 46 both map here
   Outside Run 3:  47-49
   Inside Run 3:   50-52
   Draw Play 4:    53-56
@@ -62,6 +66,8 @@ const sectionImages = {
   Inside Run 4:   64-68
   Outside Run 5:  69-73
   Short Pass 1:   74-80
+  Draw Play 5:    81-83
+  Short Pass 2:   84-87
 */
 const resultToSection = {};
 
@@ -135,6 +141,16 @@ for (let n = 74; n <= 80; n++) {
   resultToSection[n] = "short_pass_1";
 }
 
+// Draw Play 5: 81-83
+for (let n = 81; n <= 83; n++) {
+  resultToSection[n] = "draw_play_5";
+}
+
+// Short Pass 2: 84-87
+for (let n = 84; n <= 87; n++) {
+  resultToSection[n] = "short_pass_2";
+}
+
 /*
   Show a section image by section ID.
 */
@@ -188,7 +204,7 @@ function doRoll() {
   const extraD10 = rollDie(10);
   const d20 = rollDie(20);
 
-  const total = twoD6 * 10 + mainD10; // (1d6 + 1d6) * 10 + 1d10
+  const total = twoD6 * 10 + mainD10; // (1d6 + 1d6) x 10 + 1d10
 
   // DOM elements
   const twoD6Display = document.getElementById("twoD6Display");
@@ -216,8 +232,11 @@ function doRoll() {
     chartDescription.textContent = `Result ${total} maps to section "${sectionId}".`;
   } else {
     chartDescription.textContent =
-      `Result ${total} is not mapped yet. Current mappings cover 1-80.`;
+      `Result ${total} is not mapped yet. Current mappings cover 1-87.`;
   }
+
+  // Debug log to verify 45 and 46
+  console.log("Roll total:", total, "sectionId:", sectionId);
 
   // Show image if there is a section for this total
   showSectionImage(sectionId);
