@@ -31,6 +31,13 @@ function rollDie(sides) {
     images/short_pass_3.png
     images/screen_pass_2.png
     images/medium_pass_2.png
+    images/long_pass_2.png
+    images/short_pass_4.png
+    images/medium_pass_3.png
+    images/long_pass_3.png
+    images/medium_pass_4.png
+    images/short_pass_5.png
+    images/long_pass_4.png
 */
 const sectionImages = {
   inside_run_1: "images/inside_run_1.png",
@@ -54,7 +61,14 @@ const sectionImages = {
   long_pass_1: "images/long_pass_1.png",
   short_pass_3: "images/short_pass_3.png",
   screen_pass_2: "images/screen_pass_2.png",
-  medium_pass_2: "images/medium_pass_2.png"
+  medium_pass_2: "images/medium_pass_2.png",
+  long_pass_2: "images/long_pass_2.png",
+  short_pass_4: "images/short_pass_4.png",
+  medium_pass_3: "images/medium_pass_3.png",
+  long_pass_3: "images/long_pass_3.png",
+  medium_pass_4: "images/medium_pass_4.png",
+  short_pass_5: "images/short_pass_5.png",
+  long_pass_4: "images/long_pass_4.png"
 };
 
 /*
@@ -62,7 +76,7 @@ const sectionImages = {
 
   Mapping from main total (from (1d6 + 1d6) x 10 + 1d10) to chart section.
 
-  Ranges:
+  Ranges we have:
 
   Inside Run 1:   1-18
   Draw Play 1:    19-21
@@ -86,6 +100,14 @@ const sectionImages = {
   Short Pass 3:   101-103
   Screen Pass 2:  104-106
   Medium Pass 2:  107-111
+  Long Pass 2:    112-113
+  Short Pass 4:   114-121
+  (122 still unmapped)
+  Medium Pass 3:  123-125
+  Long Pass 3:    126-128
+  Medium Pass 4:  129-132
+  Short Pass 5:   133-134
+  Long Pass 4:    135-137
 */
 const resultToSection = {};
 
@@ -199,6 +221,41 @@ for (let n = 107; n <= 111; n++) {
   resultToSection[n] = "medium_pass_2";
 }
 
+// Long Pass 2: 112-113
+for (let n = 112; n <= 113; n++) {
+  resultToSection[n] = "long_pass_2";
+}
+
+// Short Pass 4: 114-121
+for (let n = 114; n <= 121; n++) {
+  resultToSection[n] = "short_pass_4";
+}
+
+// Medium Pass 3: 123-125  (122 still unmapped)
+for (let n = 123; n <= 125; n++) {
+  resultToSection[n] = "medium_pass_3";
+}
+
+// Long Pass 3: 126-128
+for (let n = 126; n <= 128; n++) {
+  resultToSection[n] = "long_pass_3";
+}
+
+// Medium Pass 4: 129-132
+for (let n = 129; n <= 132; n++) {
+  resultToSection[n] = "medium_pass_4";
+}
+
+// Short Pass 5: 133-134
+for (let n = 133; n <= 134; n++) {
+  resultToSection[n] = "short_pass_5";
+}
+
+// Long Pass 4: 135-137
+for (let n = 135; n <= 137; n++) {
+  resultToSection[n] = "long_pass_4";
+}
+
 /*
   Show a section image by section ID.
 */
@@ -277,10 +334,15 @@ function doRoll() {
   const sectionId = resultToSection[total];
 
   if (sectionId && sectionImages[sectionId]) {
-    chartDescription.textContent = `Result ${total} maps to section "${sectionId}".`;
+    const coverageNote =
+      total === 122
+        ? "122 is not mapped yet."
+        : "Mappings currently cover 1-137 except 122.";
+    chartDescription.textContent =
+      `Result ${total} maps to section "${sectionId}". ${coverageNote}`;
   } else {
     chartDescription.textContent =
-      `Result ${total} is not mapped yet. Current mappings cover 1-111.`;
+      `Result ${total} is not mapped yet. Mappings currently cover 1-137 except 122.`;
   }
 
   // Show image if there is a section for this total
@@ -322,6 +384,8 @@ document.addEventListener("DOMContentLoaded", function () {
   // Start with no image shown
   showSectionImage(null);
 });
+
+
 
 
 
