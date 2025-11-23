@@ -310,6 +310,26 @@ document.addEventListener("DOMContentLoaded", function () {
   const puntOverlay = document.getElementById("puntOverlay");
   const puntClose = document.getElementById("puntClose");
 
+  const poochButton = document.getElementById("showPoochButton");
+  const poochOverlay = document.getElementById("poochOverlay");
+  const poochClose = document.getElementById("poochClose");
+
+  const breakawayButton = document.getElementById("showBreakawayButton");
+  const breakawayOverlay = document.getElementById("breakawayOverlay");
+  const breakawayClose = document.getElementById("breakawayClose");
+
+  const puntReturnButton = document.getElementById("showPuntReturnButton");
+  const puntReturnOverlay = document.getElementById("puntReturnOverlay");
+  const puntReturnClose = document.getElementById("puntReturnClose");
+
+  const fumbleButton = document.getElementById("showFumbleButton");
+  const fumbleOverlay = document.getElementById("fumbleOverlay");
+  const fumbleClose = document.getElementById("fumbleClose");
+
+  const intReturnButton = document.getElementById("showIntReturnButton");
+  const intReturnOverlay = document.getElementById("intReturnOverlay");
+  const intReturnClose = document.getElementById("intReturnClose");
+
   if (rollButton) {
     rollButton.addEventListener("click", function () {
       rollButton.classList.add("rolling");
@@ -332,7 +352,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // helper so button toggles overlay open/close
+  // helper so button toggles overlay open or close
   function wireOverlay(button, overlay, closeBtn) {
     if (!button || !overlay || !closeBtn) return;
 
@@ -359,6 +379,11 @@ document.addEventListener("DOMContentLoaded", function () {
   wireOverlay(kickoffButton, kickoffOverlay, kickoffClose);
   wireOverlay(fieldGoalButton, fieldGoalOverlay, fieldGoalClose);
   wireOverlay(puntButton, puntOverlay, puntClose);
+  wireOverlay(poochButton, poochOverlay, poochClose);
+  wireOverlay(breakawayButton, breakawayOverlay, breakawayClose);
+  wireOverlay(puntReturnButton, puntReturnOverlay, puntReturnClose);
+  wireOverlay(fumbleButton, fumbleOverlay, fumbleClose);
+  wireOverlay(intReturnButton, intReturnOverlay, intReturnClose);
 
   // Start with no section image
   showSectionImage(null);

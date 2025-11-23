@@ -157,6 +157,21 @@
           <button id="showPuntButton" class="punt-button">
             Punts
           </button>
+          <button id="showPoochButton" class="pooch-button">
+            Pooch Punts
+          </button>
+          <button id="showBreakawayButton" class="breakaway-button">
+            Breakaways
+          </button>
+          <button id="showPuntReturnButton" class="puntreturn-button">
+            Punt Returns
+          </button>
+          <button id="showFumbleButton" class="fumble-button">
+            Fumble Recovery
+          </button>
+          <button id="showIntReturnButton" class="intreturn-button">
+            INT Return
+          </button>
         </div>
 
         <div id="sectionImageWrapper" class="section-image-wrapper section-image-wrapper--hidden">
@@ -236,9 +251,80 @@
     </div>
   </div>
 
+  <!-- POOCH PUNT POPUP OVERLAY -->
+  <div id="poochOverlay" class="chart-overlay">
+    <div class="chart-dialog">
+      <button id="poochClose" class="chart-close" aria-label="Close pooch punts chart">
+        ×
+      </button>
+      <img
+        src="images/pooch_punts_chart.png"
+        alt="Pooch punts chart"
+        class="chart-image chart-image-pooch"
+      >
+    </div>
+  </div>
+
+  <!-- BREAKAWAY POPUP OVERLAY -->
+  <div id="breakawayOverlay" class="chart-overlay">
+    <div class="chart-dialog">
+      <button id="breakawayClose" class="chart-close" aria-label="Close breakaway chart">
+        ×
+      </button>
+      <img
+        src="images/breakaway_chart.png"
+        alt="Breakaway chart"
+        class="chart-image chart-image-breakaway"
+      >
+    </div>
+  </div>
+
+  <!-- PUNT RETURN POPUP OVERLAY -->
+  <div id="puntReturnOverlay" class="chart-overlay">
+    <div class="chart-dialog">
+      <button id="puntReturnClose" class="chart-close" aria-label="Close punt returns chart">
+        ×
+      </button>
+      <img
+        src="images/punt_returns_chart.png"
+        alt="Punt returns chart"
+        class="chart-image chart-image-puntreturn"
+      >
+    </div>
+  </div>
+
+  <!-- FUMBLE RECOVERY POPUP OVERLAY -->
+  <div id="fumbleOverlay" class="chart-overlay">
+    <div class="chart-dialog">
+      <button id="fumbleClose" class="chart-close" aria-label="Close fumble recovery chart">
+        ×
+      </button>
+      <img
+        src="images/fumble_recovery_chart.png"
+        alt="Fumble recovery chart"
+        class="chart-image chart-image-fumble"
+      >
+    </div>
+  </div>
+
+  <!-- INT RETURN POPUP OVERLAY -->
+  <div id="intReturnOverlay" class="chart-overlay">
+    <div class="chart-dialog">
+      <button id="intReturnClose" class="chart-close" aria-label="Close interception return chart">
+        ×
+      </button>
+      <img
+        src="images/int_return_chart.png"
+        alt="Interception return chart"
+        class="chart-image chart-image-intreturn"
+      >
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
 

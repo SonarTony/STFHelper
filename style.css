@@ -204,7 +204,12 @@ body {
 .pressure-button,
 .kickoff-button,
 .fieldgoal-button,
-.punt-button {
+.punt-button,
+.pooch-button,
+.breakaway-button,
+.puntreturn-button,
+.fumble-button,
+.intreturn-button {
   padding: 4px 10px;
   font-size: 13px;
   border-radius: 16px;
@@ -212,6 +217,7 @@ body {
   border: 1px solid transparent;
 }
 
+/* Color themes */
 .pressure-button {
   border-color: #6b21a8;
   background-color: #ede9fe;
@@ -236,6 +242,38 @@ body {
   color: #075985;
 }
 
+.pooch-button {
+  border-color: #7c2d12;
+  background-color: #fed7aa;
+  color: #7c2d12;
+}
+
+.breakaway-button {
+  border-color: #166534;
+  background-color: #bbf7d0;
+  color: #166534;
+}
+
+.puntreturn-button {
+  border-color: #1d4ed8;
+  background-color: #dbeafe;
+  color: #1d4ed8;
+}
+
+.fumble-button {
+  border-color: #b91c1c;
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+.intreturn-button {
+  border-color: #4b5563;
+  background-color: #e5e7eb;
+  color: #111827;
+}
+
+/* Hover states */
+
 .pressure-button:hover {
   background-color: #ddd6fe;
 }
@@ -250,6 +288,26 @@ body {
 
 .punt-button:hover {
   background-color: #bae6fd;
+}
+
+.pooch-button:hover {
+  background-color: #fed7aa;
+}
+
+.breakaway-button:hover {
+  background-color: #a7f3d0;
+}
+
+.puntreturn-button:hover {
+  background-color: #bfdbfe;
+}
+
+.fumble-button:hover {
+  background-color: #fecaca;
+}
+
+.intreturn-button:hover {
+  background-color: #d1d5db;
 }
 
 .section-image-wrapper {
@@ -301,7 +359,6 @@ body {
 
 /* POPUP OVERLAYS (shared for all charts) */
 
-/* Hidden by default. JS will add .open to show. */
 .chart-overlay {
   position: fixed;
   inset: 0;
@@ -336,7 +393,12 @@ body {
 .chart-image-pressure,
 .chart-image-kickoff,
 .chart-image-fieldgoals,
-.chart-image-punts {
+.chart-image-punts,
+.chart-image-pooch,
+.chart-image-breakaway,
+.chart-image-puntreturn,
+.chart-image-fumble,
+.chart-image-intreturn {
   max-width: 60%;
   margin: 0 auto;
 }
@@ -371,7 +433,12 @@ body {
   .chart-image-pressure,
   .chart-image-kickoff,
   .chart-image-fieldgoals,
-  .chart-image-punts {
+  .chart-image-punts,
+  .chart-image-pooch,
+  .chart-image-breakaway,
+  .chart-image-puntreturn,
+  .chart-image-fumble,
+  .chart-image-intreturn {
     max-width: 90%;
   }
 }
