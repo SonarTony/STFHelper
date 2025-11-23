@@ -302,6 +302,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const kickoffOverlay = document.getElementById("kickoffOverlay");
   const kickoffClose = document.getElementById("kickoffClose");
 
+  const fieldGoalButton = document.getElementById("showFieldGoalButton");
+  const fieldGoalOverlay = document.getElementById("fieldGoalOverlay");
+  const fieldGoalClose = document.getElementById("fieldGoalClose");
+
+  const puntButton = document.getElementById("showPuntButton");
+  const puntOverlay = document.getElementById("puntOverlay");
+  const puntClose = document.getElementById("puntClose");
+
   if (rollButton) {
     rollButton.addEventListener("click", function () {
       rollButton.classList.add("rolling");
@@ -349,10 +357,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   wireOverlay(pressureButton, pressureOverlay, pressureClose);
   wireOverlay(kickoffButton, kickoffOverlay, kickoffClose);
+  wireOverlay(fieldGoalButton, fieldGoalOverlay, fieldGoalClose);
+  wireOverlay(puntButton, puntOverlay, puntClose);
 
   // Start with no section image
   showSectionImage(null);
 });
+
 
 
 

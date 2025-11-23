@@ -194,32 +194,46 @@ body {
 
 .chart-buttons {
   display: flex;
-  gap: 8px;
+  flex-wrap: wrap;
+  gap: 6px;
   margin-bottom: 6px;
 }
 
-/* Pressure button */
+/* Individual chart buttons */
 
-.pressure-button {
+.pressure-button,
+.kickoff-button,
+.fieldgoal-button,
+.punt-button {
   padding: 4px 10px;
   font-size: 13px;
   border-radius: 16px;
-  border: 1px solid #6b21a8;
-  background-color: #ede9fe;
-  color: #4c1d95;
   cursor: pointer;
+  border: 1px solid transparent;
 }
 
-/* Kickoff button */
+.pressure-button {
+  border-color: #6b21a8;
+  background-color: #ede9fe;
+  color: #4c1d95;
+}
 
 .kickoff-button {
-  padding: 4px 10px;
-  font-size: 13px;
-  border-radius: 16px;
-  border: 1px solid #0f766e;
+  border-color: #0f766e;
   background-color: #ccfbf1;
   color: #115e59;
-  cursor: pointer;
+}
+
+.fieldgoal-button {
+  border-color: #b45309;
+  background-color: #ffedd5;
+  color: #92400e;
+}
+
+.punt-button {
+  border-color: #0369a1;
+  background-color: #e0f2fe;
+  color: #075985;
 }
 
 .pressure-button:hover {
@@ -228,6 +242,14 @@ body {
 
 .kickoff-button:hover {
   background-color: #a5f3fc;
+}
+
+.fieldgoal-button:hover {
+  background-color: #fed7aa;
+}
+
+.punt-button:hover {
+  background-color: #bae6fd;
 }
 
 .section-image-wrapper {
@@ -277,7 +299,7 @@ body {
   margin: 0 auto;
 }
 
-/* POPUP OVERLAYS (shared for pressure + kickoff) */
+/* POPUP OVERLAYS (shared for all charts) */
 
 /* Hidden by default. JS will add .open to show. */
 .chart-overlay {
@@ -311,12 +333,10 @@ body {
 }
 
 /* make them smaller */
-.chart-image-pressure {
-  max-width: 60%;
-  margin: 0 auto;
-}
-
-.chart-image-kickoff {
+.chart-image-pressure,
+.chart-image-kickoff,
+.chart-image-fieldgoals,
+.chart-image-punts {
   max-width: 60%;
   margin: 0 auto;
 }
@@ -349,10 +369,13 @@ body {
   }
 
   .chart-image-pressure,
-  .chart-image-kickoff {
+  .chart-image-kickoff,
+  .chart-image-fieldgoals,
+  .chart-image-punts {
     max-width: 90%;
   }
 }
+
 
 
 

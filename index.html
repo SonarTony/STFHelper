@@ -146,10 +146,16 @@
         <!-- Buttons to toggle extra popups -->
         <div class="chart-buttons">
           <button id="showPressureButton" class="pressure-button">
-            Pressure Chart
+            Pressure
           </button>
           <button id="showKickoffButton" class="kickoff-button">
-            Kickoff Chart
+            Kickoffs
+          </button>
+          <button id="showFieldGoalButton" class="fieldgoal-button">
+            Field Goals
+          </button>
+          <button id="showPuntButton" class="punt-button">
+            Punts
           </button>
         </div>
 
@@ -202,9 +208,38 @@
     </div>
   </div>
 
+  <!-- FIELD GOAL POPUP OVERLAY -->
+  <div id="fieldGoalOverlay" class="chart-overlay">
+    <div class="chart-dialog">
+      <button id="fieldGoalClose" class="chart-close" aria-label="Close field goal chart">
+        ×
+      </button>
+      <img
+        src="images/field_goals_chart.png"
+        alt="Field goals chart"
+        class="chart-image chart-image-fieldgoals"
+      >
+    </div>
+  </div>
+
+  <!-- PUNT POPUP OVERLAY -->
+  <div id="puntOverlay" class="chart-overlay">
+    <div class="chart-dialog">
+      <button id="puntClose" class="chart-close" aria-label="Close punts chart">
+        ×
+      </button>
+      <img
+        src="images/punts_chart.png"
+        alt="Punts chart"
+        class="chart-image chart-image-punts"
+      >
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
