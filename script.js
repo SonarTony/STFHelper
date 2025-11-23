@@ -8,7 +8,7 @@ function rollDie(sides) {
 
   Images folder is "images" in your project.
 
-  Current images:
+  Expected files:
     images/inside_run_1.png
     images/draw_play_1.png
     images/outside_run_1.png
@@ -17,6 +17,12 @@ function rollDie(sides) {
     images/inside_run_2.png
     images/draw_play_3.png
     images/outside_run_3.png
+    images/inside_run_3.png
+    images/draw_play_4.png
+    images/outside_run_4.png
+    images/inside_run_4.png
+    images/outside_run_5.png
+    images/short_pass_1.png
 */
 const sectionImages = {
   inside_run_1: "images/inside_run_1.png",
@@ -26,7 +32,13 @@ const sectionImages = {
   outside_run_2: "images/outside_run_2.png",
   inside_run_2: "images/inside_run_2.png",
   draw_play_3: "images/draw_play_3.png",
-  outside_run_3: "images/outside_run_3.png"
+  outside_run_3: "images/outside_run_3.png",
+  inside_run_3: "images/inside_run_3.png",
+  draw_play_4: "images/draw_play_4.png",
+  outside_run_4: "images/outside_run_4.png",
+  inside_run_4: "images/inside_run_4.png",
+  outside_run_5: "images/outside_run_5.png",
+  short_pass_1: "images/short_pass_1.png"
 };
 
 /*
@@ -34,61 +46,93 @@ const sectionImages = {
 
   Mapping from main total (from (1d6 + 1d6) * 10 + 1d10) to chart section.
 
-  Based on your ranges:
+  So far:
 
-  First batch:
-    Draw Play 1:       19, 20–21
-    Outside Run 1:     22–23, 24, 25, 26
-    Draw Play 2:       27–29, 30, 31
-    Outside Run 2:     32, 33
-
-  Second batch:
-    Inside Run 2:      34–36, 37, 38, 39, 40–41, 42, 43–44
-    Draw Play 3:       45–46
-    Outside Run 3:     47, 48–49
-
-  Inside Run 1 (<5, 5–13, 14–15, 16–18) is included here as 1–18
-  for completeness even though the main total cannot hit those numbers.
+  Inside Run 1:   1-18
+  Draw Play 1:    19-21
+  Outside Run 1:  22-26
+  Draw Play 2:    27-31
+  Outside Run 2:  32-33
+  Inside Run 2:   34-44
+  Draw Play 3:    45-46
+  Outside Run 3:  47-49
+  Inside Run 3:   50-52
+  Draw Play 4:    53-56
+  Outside Run 4:  57-63
+  Inside Run 4:   64-68
+  Outside Run 5:  69-73
+  Short Pass 1:   74-80
 */
 const resultToSection = {};
 
-// Inside Run 1: 1–18 (likely driven by another die, but included anyway)
+// Inside Run 1: 1-18
 for (let n = 1; n <= 18; n++) {
   resultToSection[n] = "inside_run_1";
 }
 
-// Draw Play 1: 19, 20, 21
-resultToSection[19] = "draw_play_1";
-resultToSection[20] = "draw_play_1";
-resultToSection[21] = "draw_play_1";
+// Draw Play 1: 19-21
+for (let n = 19; n <= 21; n++) {
+  resultToSection[n] = "draw_play_1";
+}
 
-// Outside Run 1: 22–26
+// Outside Run 1: 22-26
 for (let n = 22; n <= 26; n++) {
   resultToSection[n] = "outside_run_1";
 }
 
-// Draw Play 2: 27–31
+// Draw Play 2: 27-31
 for (let n = 27; n <= 31; n++) {
   resultToSection[n] = "draw_play_2";
 }
 
-// Outside Run 2: 32–33
+// Outside Run 2: 32-33
 for (let n = 32; n <= 33; n++) {
   resultToSection[n] = "outside_run_2";
 }
 
-// Inside Run 2: 34–44
+// Inside Run 2: 34-44
 for (let n = 34; n <= 44; n++) {
   resultToSection[n] = "inside_run_2";
 }
 
-// Draw Play 3: 45–46
-resultToSection[45] = "draw_play_3";
-resultToSection[46] = "draw_play_3";
+// Draw Play 3: 45-46
+for (let n = 45; n <= 46; n++) {
+  resultToSection[n] = "draw_play_3";
+}
 
-// Outside Run 3: 47–49
+// Outside Run 3: 47-49
 for (let n = 47; n <= 49; n++) {
   resultToSection[n] = "outside_run_3";
+}
+
+// Inside Run 3: 50-52
+for (let n = 50; n <= 52; n++) {
+  resultToSection[n] = "inside_run_3";
+}
+
+// Draw Play 4: 53-56
+for (let n = 53; n <= 56; n++) {
+  resultToSection[n] = "draw_play_4";
+}
+
+// Outside Run 4: 57-63
+for (let n = 57; n <= 63; n++) {
+  resultToSection[n] = "outside_run_4";
+}
+
+// Inside Run 4: 64-68
+for (let n = 64; n <= 68; n++) {
+  resultToSection[n] = "inside_run_4";
+}
+
+// Outside Run 5: 69-73
+for (let n = 69; n <= 73; n++) {
+  resultToSection[n] = "outside_run_5";
+}
+
+// Short Pass 1: 74-80
+for (let n = 74; n <= 80; n++) {
+  resultToSection[n] = "short_pass_1";
 }
 
 /*
@@ -137,7 +181,7 @@ function doRoll() {
   const d6b = rollDie(6);
   const twoD6 = d6a + d6b;
 
-  // Main d10 for ones (1–10)
+  // Main d10 for ones (1-10)
   const mainD10 = rollDie(10);
 
   // Extra rolls not used in main total
@@ -172,7 +216,7 @@ function doRoll() {
     chartDescription.textContent = `Result ${total} maps to section "${sectionId}".`;
   } else {
     chartDescription.textContent =
-      `Result ${total} is not mapped yet. Current mappings cover 1–49.`;
+      `Result ${total} is not mapped yet. Current mappings cover 1-80.`;
   }
 
   // Show image if there is a section for this total
@@ -214,6 +258,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Start with no image shown
   showSectionImage(null);
 });
+
 
 
 
