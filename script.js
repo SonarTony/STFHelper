@@ -1,6 +1,11 @@
-// Simple RNG
+// Simple RNG for standard dice (1..sides)
 function rollDie(sides) {
   return Math.floor(Math.random() * sides) + 1;
+}
+
+// Zero based d10 (0..9)
+function rollD10Zero() {
+  return Math.floor(Math.random() * 10);
 }
 
 /*
@@ -197,11 +202,11 @@ function doRoll() {
   const d6b = rollDie(6);
   const twoD6 = d6a + d6b;
 
-  // Main d10 for ones
-  const mainD10 = rollDie(10);
+  // Main d10 for ones (0..9)
+  const mainD10 = rollD10Zero();
 
-  // Extra rolls not used in mapping
-  const extraD10 = rollDie(10);
+  // Extra d10 (0..9) and d20
+  const extraD10 = rollD10Zero();
   const d20 = rollDie(20);
 
   const baseTotal = twoD6 * 10 + mainD10;
@@ -388,6 +393,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Start with no section image
   showSectionImage(null);
 });
+
 
 
 
